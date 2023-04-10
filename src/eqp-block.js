@@ -17,17 +17,12 @@ var media980Px = window.matchMedia('(min-width: 980px)');
 var media1100Px = window.matchMedia('(max-width: 1240px)');
 var colorRed = '#C52626';
 var colorWhite = '#fff';
-// var contentSlide1 = 'url(Heavy-Weights.d94eefbb.jpg)';
-// var contentSlide2 = 'url(Tons-Of-Weights.972e02b5.jpg)';
-// var contentSlide3 = 'url(Workout-Machines.ec5de2f4.jpg)';
-// var contentSlide4 = 'url(Miles-Of-Cardio.558f8ba5.jpg)';
-
-var contentSlide1 = 'url(Heavy-Weights-Mobile.d4f5fc28.jpg)';
-var contentSlide2 = 'url(Tons-Of-Weights-Mobile.61e08944.jpg)';
-var contentSlide3 = 'url(Workout-Machines-Mobile.1e56acd3.jpg)';
-var contentSlide4 = 'url(Miles-Of-Cardio-Mobile.9df24b3e.jpg)';
-var textActive = {"color": colorWhite, "user-select": "all"};
-var textInactive = {"color": "transparent", "user-select": "none"};
+var contentSlide1 = 'url(Heavy-Weights.d94eefbb.jpg)';
+var contentSlide2 = 'url(Tons-Of-Weights.972e02b5.jpg)';
+var contentSlide3 = 'url(Workout-Machines.ec5de2f4.jpg)';
+var contentSlide4 = 'url(Miles-Of-Cardio.558f8ba5.jpg)';
+var textActive = { "color": colorWhite, "user-select": "all" };
+var textInactive = { "color": "transparent", "user-select": "none" };
 var timer = '500';
 let hoverTimeout1;
 let hoverTimeout2;
@@ -35,89 +30,89 @@ let hoverTimeout3;
 let hoverTimeout4;
 
 slideBlock1.hover(function () {
-  if(media980Px.matches){
-    hoverTimeout1 = setTimeout(function() {
+  if (media980Px.matches) {
+    hoverTimeout1 = setTimeout(function () {
       slide.css("bottom", slideBlock1Position);
       slide.css("background-color", colorRed);
       img.css("background-image", contentSlide1);
-                          
+
       slide.removeClass('initialActive');
       textParagraph1.css(textActive);
       textParagraph2.css(textInactive);
       textParagraph3.css(textInactive);
       textParagraph4.css(textInactive);
-      
-      if(media1100Px.matches) {
+
+      if (media1100Px.matches) {
         imgBlock.css("background-position", "inherit");
       }
-      }, timer); 
-      }
-  },
-    function() {
-      clearTimeout(hoverTimeout1);
+    }, timer);
+  }
+},
+  function () {
+    clearTimeout(hoverTimeout1);
   }
 );
 
 
-slideBlock2.hover(function(){
-  if(media980Px.matches){
-    hoverTimeout2 = setTimeout(function() {
+slideBlock2.hover(function () {
+  if (media980Px.matches) {
+    hoverTimeout2 = setTimeout(function () {
       slide.css("bottom", slideBlock2Position);
       slide.css("background-color", colorRed);
       img.css("background-image", contentSlide2);
-  
+
       imgBlock.css("background-position", "50% 50%");
       slide.removeClass('initialActive');
       textParagraph2.css(textActive);
       textParagraph1.css(textInactive);
       textParagraph3.css(textInactive);
       textParagraph4.css(textInactive);
-  }, timer);
+    }, timer);
   }
 },
 
-  function() {
-  clearTimeout(hoverTimeout2);
-});
+  function () {
+    clearTimeout(hoverTimeout2);
+  });
 
-slideBlock3.hover(function(){
-  if(media980Px.matches){
-    hoverTimeout3 = setTimeout(function() {
+slideBlock3.hover(function () {
+  if (media980Px.matches) {
+    hoverTimeout3 = setTimeout(function () {
       slide.css("bottom", slideBlock3Position);
       slide.css("background-color", colorRed);
       img.css("background-image", contentSlide3);
-              
+
       imgBlock.css("background-position", "50% 50%");
       slide.removeClass('initialActive');
       textParagraph3.css(textActive);
       textParagraph1.css(textInactive);
       textParagraph2.css(textInactive);
       textParagraph4.css(textInactive);
-  }, timer);
+    }, timer);
   }
 },
 
-  function() {
-  clearTimeout(hoverTimeout3);
-});
-   
-slideBlock4.hover(function(){
-  if(media980Px.matches){
-    hoverTimeout4 = setTimeout(function() {
+  function () {
+    clearTimeout(hoverTimeout3);
+  });
+
+slideBlock4.hover(function () {
+  if (media980Px.matches) {
+    hoverTimeout4 = setTimeout(function () {
       slide.css("bottom", slideBlock4Position);
       slide.css("background-color", colorRed);
       img.css("background-image", contentSlide4);
-      
+
       imgBlock.css("background-position", "50% 50%");
       slide.removeClass('initialActive');
       textParagraph4.css(textActive);
       textParagraph1.css(textInactive);
       textParagraph2.css(textInactive);
       textParagraph3.css(textInactive);
-  }, timer);
+    }, timer);
   }
 },
 
-  function() {
-  clearTimeout(hoverTimeout4);
-});
+  function () {
+    clearTimeout(hoverTimeout4);
+  });
