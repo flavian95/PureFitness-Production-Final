@@ -117,62 +117,75 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-  return bundleURL;
-}
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-  return '/';
-}
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-function updateLink(link) {
-  var newLink = link.cloneNode();
-  newLink.onload = function () {
-    link.remove();
-  };
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-var cssTimeout = null;
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-    cssTimeout = null;
-  }, 50);
-}
-module.exports = reloadCSS;
-},{"./bundle-url":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"css/memberships.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./..\\img\\Membership-Header.jpg":[["Membership-Header.75afb144.jpg","img/Membership-Header.jpg"],"img/Membership-Header.jpg"],"_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+})({"dist/main.js":[function(require,module,exports) {
+(function () {
+  "use strict";
+
+  var s = document.getElementsByClassName("body")[0],
+    e = document.getElementsByClassName("nav")[0],
+    t = document.getElementsByClassName("nav-menu")[0],
+    c = document.getElementsByClassName("nav-links-body")[0],
+    o = document.getElementsByClassName("nav-icons-body")[0],
+    i = document.getElementsByClassName("nav-location")[0];
+  t.addEventListener("click", function () {
+    c.classList.toggle("navActive"), o.classList.toggle("navActive"), t.classList.toggle("menuActive"), e.classList.toggle("navMenuActive"), s.classList.toggle("navBodyActive"), window.scrollTo(0, 0);
+  }), i.addEventListener("click", function () {
+    s.classList.toggle("navLocationActive"), c.classList.remove("navActive"), o.classList.remove("navActive"), t.classList.remove("menuActive"), e.classList.remove("navMenuActive"), s.classList.remove("navBodyActive");
+  });
+  var a,
+    n,
+    l,
+    r,
+    m = $(".eqp-slide-hover-1"),
+    u = $(".eqp-slide-hover-2"),
+    v = $(".eqp-slide-hover-3"),
+    d = $(".eqp-slide-hover-4"),
+    g = $(".eqp-slide-text-paragraph-1"),
+    p = $(".eqp-slide-text-paragraph-2"),
+    b = $(".eqp-slide-text-paragraph-3"),
+    h = $(".eqp-slide-text-paragraph-4"),
+    f = $(".eqp-slide-text-block"),
+    k = $(".slide-bar"),
+    A = $(".eqp-slide-text-block"),
+    L = window.matchMedia("(min-width: 980px)"),
+    x = window.matchMedia("(max-width: 1240px)"),
+    y = "#C52626",
+    C = {
+      color: "#fff",
+      "user-select": "all"
+    },
+    q = {
+      color: "transparent",
+      "user-select": "none"
+    },
+    T = "500";
+  m.hover(function () {
+    L.matches && (a = setTimeout(function () {
+      k.css("bottom", "-77px"), k.css("background-color", y), f.css("background-image", "url(Heavy-Weights.d94eefbb.jpg)"), k.removeClass("initialActive"), g.css(C), p.css(q), b.css(q), h.css(q), x.matches && A.css("background-position", "inherit");
+    }, T));
+  }, function () {
+    clearTimeout(a);
+  }), u.hover(function () {
+    L.matches && (n = setTimeout(function () {
+      k.css("bottom", "-153px"), k.css("background-color", y), f.css("background-image", "url(Tons-Of-Weights.972e02b5.jpg)"), A.css("background-position", "50% 50%"), k.removeClass("initialActive"), p.css(C), g.css(q), b.css(q), h.css(q);
+    }, T));
+  }, function () {
+    clearTimeout(n);
+  }), v.hover(function () {
+    L.matches && (l = setTimeout(function () {
+      k.css("bottom", "-229px"), k.css("background-color", y), f.css("background-image", "url(Workout-Machines.ec5de2f4.jpg)"), A.css("background-position", "50% 50%"), k.removeClass("initialActive"), b.css(C), g.css(q), p.css(q), h.css(q);
+    }, T));
+  }, function () {
+    clearTimeout(l);
+  }), d.hover(function () {
+    L.matches && (r = setTimeout(function () {
+      k.css("bottom", "-305px"), k.css("background-color", y), f.css("background-image", "url(Miles-Of-Cardio.558f8ba5.jpg)"), A.css("background-position", "50% 50%"), k.removeClass("initialActive"), h.css(C), g.css(q), p.css(q), b.css(q);
+    }, T));
+  }, function () {
+    clearTimeout(r);
+  });
+})();
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -341,5 +354,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/memberships.7bfe4e45.js.map
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","dist/main.js"], null)
+//# sourceMappingURL=/main.7cfef742.js.map

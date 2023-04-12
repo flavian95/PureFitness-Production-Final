@@ -117,62 +117,39 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
+})({"dist/FAQ.js":[function(require,module,exports) {
+(function () {
+  "use strict";
+
+  var e = document.getElementsByClassName("body")[0],
+    t = document.getElementsByClassName("nav")[0],
+    s = document.getElementsByClassName("nav-menu")[0],
+    n = document.getElementsByClassName("nav-links-body")[0],
+    c = document.getElementsByClassName("nav-icons-body")[0],
+    l = document.getElementsByClassName("header")[0];
+  s.addEventListener("click", function () {
+    n.classList.toggle("navActive"), c.classList.toggle("navActive"), s.classList.toggle("menuActive"), t.classList.toggle("navMenuActive"), e.classList.toggle("navBodyActive"), window.scrollTo(0, 0), l.classList.toggle("mainNavActive");
+  });
+  var a = document.querySelectorAll(".frequently-asked-questions-icon"),
+    o = document.querySelectorAll(".frequently-asked-questions-2"),
+    i = document.querySelectorAll(".frequently-asked-questions-header"),
+    d = document.querySelectorAll(".frequently-asked-questions-1"),
+    u = document.querySelectorAll(".frequently-asked-questions-body");
+  function r(e, t) {
+    var s = parseInt(e.dataset.counter) || 0;
+    o[t].classList.toggle("bodyActive"), d[t].classList.toggle("headerActive"), u[t].classList.toggle("headerBodyActive"), 0 === s ? (a[t].classList.add("iconActive1"), a[t].classList.remove("iconActive2"), s = 1) : (a[t].classList.add("iconActive2"), a[t].classList.remove("iconActive1"), s = 0), e.dataset.counter = s;
   }
-  return bundleURL;
-}
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-  return '/';
-}
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-function updateLink(link) {
-  var newLink = link.cloneNode();
-  newLink.onload = function () {
-    link.remove();
-  };
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-var cssTimeout = null;
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-    cssTimeout = null;
-  }, 50);
-}
-module.exports = reloadCSS;
-},{"./bundle-url":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"css/memberships.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./..\\img\\Membership-Header.jpg":[["Membership-Header.75afb144.jpg","img/Membership-Header.jpg"],"img/Membership-Header.jpg"],"_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+  a.forEach(function (e, t) {
+    e.addEventListener("click", function () {
+      r(e, t);
+    });
+  }), i.forEach(function (e, t) {
+    e.addEventListener("click", function () {
+      r(e, t);
+    });
+  });
+})();
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -341,5 +318,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/memberships.7bfe4e45.js.map
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","dist/FAQ.js"], null)
+//# sourceMappingURL=/FAQ.bc5d77d8.js.map

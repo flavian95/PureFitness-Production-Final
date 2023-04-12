@@ -117,62 +117,49 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
+})({"dist/contact.js":[function(require,module,exports) {
+(function () {
+  "use strict";
+
+  var t = document.getElementsByClassName("body")[0],
+    e = document.getElementsByClassName("nav")[0],
+    c = document.getElementsByClassName("nav-menu")[0],
+    a = document.getElementsByClassName("nav-links-body")[0],
+    n = document.getElementsByClassName("nav-icons-body")[0],
+    s = document.getElementsByClassName("header")[0];
+  c.addEventListener("click", function () {
+    a.classList.toggle("navActive"), n.classList.toggle("navActive"), c.classList.toggle("menuActive"), e.classList.toggle("navMenuActive"), t.classList.toggle("navBodyActive"), window.scrollTo(0, 0), s.classList.toggle("headerNavActive");
+  });
+  var o = document.querySelector(".btn-contact"),
+    r = document.querySelector(".contact-btn-body"),
+    i = document.querySelector(".contact-input-1"),
+    l = document.querySelector(".contact-input-2"),
+    v = document.querySelector(".contact-input-3"),
+    u = document.querySelector(".contact-error-1"),
+    d = document.querySelector(".contact-error-2"),
+    m = document.querySelector(".contact-error-3"),
+    L = (document.querySelector(".contact-header-1"), document.querySelectorAll(".contact-input")),
+    A = document.querySelector(".text-contact");
+  function E(t) {
+    return /^\S+@\S+\.\S+$/.test(t);
   }
-  return bundleURL;
-}
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-  return '/';
-}
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-function updateLink(link) {
-  var newLink = link.cloneNode();
-  newLink.onload = function () {
-    link.remove();
-  };
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-var cssTimeout = null;
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-    cssTimeout = null;
-  }, 50);
-}
-module.exports = reloadCSS;
-},{"./bundle-url":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"css/memberships.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./..\\img\\Membership-Header.jpg":[["Membership-Header.75afb144.jpg","img/Membership-Header.jpg"],"img/Membership-Header.jpg"],"_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+  o.addEventListener("click", function () {
+    event.preventDefault(), !(i.value.trim().length >= 1 && l.value.trim().length >= 1 && v.value.trim().length >= 1) || u.classList.contains("contactErrorActive") || i.classList.contains("contactInputActive") || d.classList.contains("contactErrorActive") || l.classList.contains("contactInputActive") || m.classList.contains("contactErrorActive") || v.classList.contains("contactInputActive") || !E(l.value.trim()) || (o.textContent = "Sending...", clearInterval("contactInterval"), o.classList.add("btnActive"), function () {
+      var t = new URLSearchParams();
+      t.set("textContactActive", "true"), t.set("inputActive", "true"), t.set("btnActive", "true");
+      var e = "".concat(location.pathname, "?").concat(t.toString());
+      location.replace(e);
+    }()), o.classList.contains("activeBtn") || (contactInterval = setInterval(function () {
+      "" === i.value.trim() ? (u.classList.add("contactError"), u.classList.add("contactErrorActive"), i.classList.add("contactInputActive")) : (u.classList.remove("contactError"), u.classList.remove("contactErrorActive"), i.classList.remove("contactInputActive")), "" === l.value.trim() ? (d.textContent = "This field is required", d.classList.add("contactError"), d.classList.add("contactErrorActive"), l.classList.add("contactInputActive")) : E(l.value.trim()) ? (d.classList.remove("contactError"), d.classList.remove("contactErrorActive"), l.classList.remove("contactInputActive")) : (d.textContent = "Please enter a valid email address.", d.classList.add("contactError"), d.classList.add("contactErrorActive"), l.classList.add("contactInputActive")), "" === v.value.trim() ? (m.classList.add("contactError"), m.classList.add("contactErrorActive"), v.classList.add("contactInputActive")) : (m.classList.remove("contactError"), m.classList.remove("contactErrorActive"), v.classList.remove("contactInputActive"));
+    }, 100));
+  }), document.addEventListener("DOMContentLoaded", function () {
+    var t = new URLSearchParams(location.search);
+    "true" === t.get("textContactActive") && A.classList.add("textContactActive"), "true" === t.get("inputActive") && L.forEach(function (t) {
+      return t.classList.add("inputActive");
+    }), "true" === t.get("btnActive") && r.classList.add("btnActive");
+  });
+})();
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -341,5 +328,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/memberships.7bfe4e45.js.map
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","dist/contact.js"], null)
+//# sourceMappingURL=/contact.c2740598.js.map
