@@ -1,0 +1,2 @@
+import {body, nav, navMenu, navLinks, navIcons, header, navToggler} from './nav-faq.js';
+import {icons, texts, headers, sectionHeaders, headersBody, click1, click2, toggleFAQ } from './frequently-asked-questions.js';
