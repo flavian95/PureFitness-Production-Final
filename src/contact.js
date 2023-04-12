@@ -1,1 +1,114 @@
-(()=>{"use strict";var t=document.getElementsByClassName("body")[0],e=document.getElementsByClassName("nav")[0],c=document.getElementsByClassName("nav-menu")[0],a=document.getElementsByClassName("nav-links-body")[0],n=document.getElementsByClassName("nav-icons-body")[0],s=document.getElementsByClassName("header")[0];c.addEventListener("click",(function(){a.classList.toggle("navActive"),n.classList.toggle("navActive"),c.classList.toggle("menuActive"),e.classList.toggle("navMenuActive"),t.classList.toggle("navBodyActive"),window.scrollTo(0,0),s.classList.toggle("headerNavActive")}));var o=document.querySelector(".btn-contact"),r=document.querySelector(".contact-btn-body"),i=document.querySelector(".contact-input-1"),l=document.querySelector(".contact-input-2"),v=document.querySelector(".contact-input-3"),u=document.querySelector(".contact-error-1"),d=document.querySelector(".contact-error-2"),m=document.querySelector(".contact-error-3"),L=(document.querySelector(".contact-header-1"),document.querySelectorAll(".contact-input")),A=document.querySelector(".text-contact");function E(t){return/^\S+@\S+\.\S+$/.test(t)}o.addEventListener("click",(function(){event.preventDefault(),!(i.value.trim().length>=1&&l.value.trim().length>=1&&v.value.trim().length>=1)||u.classList.contains("contactErrorActive")||i.classList.contains("contactInputActive")||d.classList.contains("contactErrorActive")||l.classList.contains("contactInputActive")||m.classList.contains("contactErrorActive")||v.classList.contains("contactInputActive")||!E(l.value.trim())||(o.textContent="Sending...",clearInterval("contactInterval"),o.classList.add("btnActive"),function(){var t=new URLSearchParams;t.set("textContactActive","true"),t.set("inputActive","true"),t.set("btnActive","true");var e="".concat(location.pathname,"?").concat(t.toString());location.replace(e)}()),o.classList.contains("activeBtn")||(contactInterval=setInterval((function(){""===i.value.trim()?(u.classList.add("contactError"),u.classList.add("contactErrorActive"),i.classList.add("contactInputActive")):(u.classList.remove("contactError"),u.classList.remove("contactErrorActive"),i.classList.remove("contactInputActive")),""===l.value.trim()?(d.textContent="This field is required",d.classList.add("contactError"),d.classList.add("contactErrorActive"),l.classList.add("contactInputActive")):E(l.value.trim())?(d.classList.remove("contactError"),d.classList.remove("contactErrorActive"),l.classList.remove("contactInputActive")):(d.textContent="Please enter a valid email address.",d.classList.add("contactError"),d.classList.add("contactErrorActive"),l.classList.add("contactInputActive")),""===v.value.trim()?(m.classList.add("contactError"),m.classList.add("contactErrorActive"),v.classList.add("contactInputActive")):(m.classList.remove("contactError"),m.classList.remove("contactErrorActive"),v.classList.remove("contactInputActive"))}),100))})),document.addEventListener("DOMContentLoaded",(function(){var t=new URLSearchParams(location.search);"true"===t.get("textContactActive")&&A.classList.add("textContactActive"),"true"===t.get("inputActive")&&L.forEach((function(t){return t.classList.add("inputActive")})),"true"===t.get("btnActive")&&r.classList.add("btnActive")}))})();
+export let btn = document.querySelector('.btn-contact');
+export let btnBody =document.querySelector('.contact-btn-body');
+export let inputName = document.querySelector('.contact-input-1');
+export let inputEmail = document.querySelector('.contact-input-2');
+export let inputMessage = document.querySelector('.contact-input-3');
+export let inputErrorName = document.querySelector('.contact-error-1');
+export let inputErrorEmail = document.querySelector('.contact-error-2');
+export let inputErrorMsg = document.querySelector('.contact-error-3');
+export let contactHeader = document.querySelector('.contact-header-1');
+export let contactInput = document.querySelectorAll('.contact-input');
+export let textContact = document.querySelector('.text-contact');
+
+export function contact() {
+btn.addEventListener('click', () =>{
+    event.preventDefault();
+    checkFormValidity();
+
+    if(!btn.classList.contains('activeBtn')) {
+    contactInterval = setInterval(() => {
+        if (inputName.value.trim() === '') {
+            inputErrorName.classList.add('contactError');
+            inputErrorName.classList.add('contactErrorActive');
+            inputName.classList.add('contactInputActive');
+        }
+            
+        else {
+            inputErrorName.classList.remove('contactError');
+            inputErrorName.classList.remove('contactErrorActive');
+            inputName.classList.remove('contactInputActive');
+        }
+    
+        if (inputEmail.value.trim() === ''){
+            inputErrorEmail.textContent = 'This field is required';
+            inputErrorEmail.classList.add('contactError');
+            inputErrorEmail.classList.add('contactErrorActive');
+            inputEmail.classList.add('contactInputActive');
+        }
+    
+        else if (!isValidEmail(inputEmail.value.trim())){
+            inputErrorEmail.textContent = 'Please enter a valid email address.';
+            inputErrorEmail.classList.add('contactError');
+            inputErrorEmail.classList.add('contactErrorActive');
+            inputEmail.classList.add('contactInputActive');
+        }
+    
+        else {
+            inputErrorEmail.classList.remove('contactError');
+            inputErrorEmail.classList.remove('contactErrorActive');
+            inputEmail.classList.remove('contactInputActive');
+        }
+
+        if (inputMessage.value.trim() === '') {
+            inputErrorMsg.classList.add('contactError');
+            inputErrorMsg.classList.add('contactErrorActive');
+            inputMessage.classList.add('contactInputActive');
+        }
+        
+        else {
+            inputErrorMsg.classList.remove('contactError');
+            inputErrorMsg.classList.remove('contactErrorActive');
+            inputMessage.classList.remove('contactInputActive');
+        }
+      }, 100);
+    }
+});
+}
+
+contact();
+
+export function isValidEmail(email) {
+    const regex = /^\S+@\S+\.\S+$/;
+    return regex.test(email);
+}
+
+export function checkFormValidity() {
+    if ((inputName.value.trim().length >= 1) && (inputEmail.value.trim().length >= 1) && (inputMessage.value.trim().length >= 1) &&
+        !inputErrorName.classList.contains('contactErrorActive') && !inputName.classList.contains('contactInputActive') &&
+        !inputErrorEmail.classList.contains('contactErrorActive') && !inputEmail.classList.contains('contactInputActive') &&
+        !inputErrorMsg.classList.contains('contactErrorActive') && !inputMessage.classList.contains('contactInputActive') &&
+        (isValidEmail(inputEmail.value.trim()))){
+
+        btn.textContent = 'Sending...';
+        clearInterval('contactInterval');
+        btn.classList.add('btnActive');
+        startReload();
+    }
+}
+
+export function startReload() {
+    const params = new URLSearchParams();
+    params.set('textContactActive', 'true');
+    params.set('inputActive', 'true');
+    params.set('btnActive', 'true')
+    const url = `${location.pathname}?${params.toString()}`;
+  
+    location.replace(url);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+
+    const params = new URLSearchParams(location.search);
+
+    if (params.get('textContactActive') === 'true') {
+      textContact.classList.add('textContactActive');
+    }
+
+    if (params.get('inputActive') === 'true') {
+      contactInput.forEach(input => input.classList.add('inputActive'));
+    }
+
+    if (params.get('btnActive') === 'true') {
+        btnBody.classList.add('btnActive');
+    }
+});
