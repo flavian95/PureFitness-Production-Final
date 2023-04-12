@@ -1,1 +1,0 @@
-import {body, nav, navMenu, navLinks, navIcons, main, navToggler} from './footer-nav.js';
