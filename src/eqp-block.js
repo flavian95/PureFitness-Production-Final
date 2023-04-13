@@ -17,10 +17,10 @@ export var media980Px = window.matchMedia('(min-width: 980px)');
 export var media1100Px = window.matchMedia('(max-width: 1240px)');
 export var colorRed = '#C52626';
 export var colorWhite = '#fff';
-export var contentSlide1 = 'url(Heavy-Weights.5d29ddfe.jpg)';
-export var contentSlide2 = 'url(Tons-Of-Weights.e87ab1e3.jpg)';
-export var contentSlide3 = 'url(Workout-Machines.030c08a7.jpg)';
-export var contentSlide4 = 'url(Miles-Of-Cardio.61dc1ed0.jpg)';
+export var contentSlide1 = 'url(dist/Heavy-Weights.5d29ddfe.jpg)';
+export var contentSlide2 = 'url(dist/Tons-Of-Weights.e87ab1e3.jpg)';
+export var contentSlide3 = 'url(dist/Workout-Machines.030c08a7.jpg)';
+export var contentSlide4 = 'url(dist/Miles-Of-Cardio.61dc1ed0.jpg)';
 export var textActive = {"color": colorWhite, "user-select": "all"};
 export var textInactive = {"color": "transparent", "user-select": "none"};
 export var timer = '500';
@@ -28,6 +28,7 @@ export let hoverTimeout1;
 export let hoverTimeout2;
 export let hoverTimeout3;
 export let hoverTimeout4;
+
 
 export function hover1() {
 slideBlock1.hover(function () {
