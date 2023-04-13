@@ -171,7 +171,12 @@ exports.hover1 = hover1;
 exports.hover2 = hover2;
 exports.hover3 = hover3;
 exports.hover4 = hover4;
-exports.timer = exports.textParagraph4 = exports.textParagraph3 = exports.textParagraph2 = exports.textParagraph1 = exports.textInactive = exports.textActive = exports.slideBlock4Position = exports.slideBlock4 = exports.slideBlock3Position = exports.slideBlock3 = exports.slideBlock2Position = exports.slideBlock2 = exports.slideBlock1Position = exports.slideBlock1 = exports.slide = exports.media980Px = exports.media1100Px = exports.imgBlock = exports.img = exports.hoverTimeout4 = exports.hoverTimeout3 = exports.hoverTimeout2 = exports.hoverTimeout1 = void 0;
+exports.imgBlock = exports.img = exports.hoverTimeout4 = exports.hoverTimeout3 = exports.hoverTimeout2 = exports.hoverTimeout1 = void 0;
+exports.imgLoad1 = imgLoad1;
+exports.imgLoad2 = imgLoad2;
+exports.imgLoad3 = imgLoad3;
+exports.imgLoad4 = imgLoad4;
+exports.timer = exports.textParagraph4 = exports.textParagraph3 = exports.textParagraph2 = exports.textParagraph1 = exports.textInactive = exports.textActive = exports.slideBlock4Position = exports.slideBlock4 = exports.slideBlock3Position = exports.slideBlock3 = exports.slideBlock2Position = exports.slideBlock2 = exports.slideBlock1Position = exports.slideBlock1 = exports.slide = exports.media980Px = exports.media1100Px = void 0;
 var slideBlock1 = $('.eqp-slide-hover-1');
 exports.slideBlock1 = slideBlock1;
 var slideBlock2 = $('.eqp-slide-hover-2');
@@ -210,13 +215,13 @@ var colorRed = '#C52626';
 exports.colorRed = colorRed;
 var colorWhite = '#fff';
 exports.colorWhite = colorWhite;
-var contentSlide1 = 'url(../../img/Heavy-Weights.jpg)';
+var contentSlide1 = 'url(Heavy-Weights.5d29ddfe.jpg)';
 exports.contentSlide1 = contentSlide1;
-var contentSlide2 = 'url(../../img/Tons-Of-Weights.jpg)';
+var contentSlide2 = 'url(Tons-Of-Weights.e87ab1e3.jpg)';
 exports.contentSlide2 = contentSlide2;
-var contentSlide3 = 'url(../../img/Workout-Machines.jpg)';
+var contentSlide3 = 'url(Workout-Machines.030c08a7.jpg)';
 exports.contentSlide3 = contentSlide3;
-var contentSlide4 = 'url(../../img/Miles-Of-Cardio.jpg)';
+var contentSlide4 = 'url(Miles-Of-Cardio.61dc1ed0.jpg)';
 exports.contentSlide4 = contentSlide4;
 var textActive = {
   "color": colorWhite,
@@ -238,6 +243,13 @@ var hoverTimeout3;
 exports.hoverTimeout3 = hoverTimeout3;
 var hoverTimeout4;
 exports.hoverTimeout4 = hoverTimeout4;
+function imgLoad1() {
+  slideBlock1.hover(function () {
+    var img1Load = new Image();
+    img1Load.src = 'Heavy-Weights.5d29ddfe.jpg';
+  });
+}
+imgLoad1();
 function hover1() {
   slideBlock1.hover(function () {
     if (media980Px.matches) {
@@ -260,6 +272,13 @@ function hover1() {
   });
 }
 hover1();
+function imgLoad2() {
+  slideBlock2.hover(function () {
+    var img2Load = new Image();
+    img2Load.src = 'Tons-Of-Weights.e87ab1e3.jpg';
+  });
+}
+imgLoad2();
 function hover2() {
   slideBlock2.hover(function () {
     if (media980Px.matches) {
@@ -280,6 +299,13 @@ function hover2() {
   });
 }
 hover2();
+function imgLoad3() {
+  slideBlock3.hover(function () {
+    var img3Load = new Image();
+    img3Load.src = 'Workout-Machines.030c08a7.jpg';
+  });
+}
+imgLoad3();
 function hover3() {
   slideBlock3.hover(function () {
     if (media980Px.matches) {
@@ -300,6 +326,13 @@ function hover3() {
   });
 }
 hover3();
+function imgLoad4() {
+  slideBlock4.hover(function () {
+    var img4Load = new Image();
+    img4Load.src = 'Miles-Of-Cardio.61dc1ed0.jpg';
+  });
+}
+imgLoad4();
 function hover4() {
   slideBlock4.hover(function () {
     if (media980Px.matches) {
@@ -350,7 +383,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64012" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55005" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
