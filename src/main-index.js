@@ -33,6 +33,10 @@ hoverTimeout4,
 hover1,
 hover2,
 hover3,
-hover4
+hover4,
+imgLoad1,
+imgLoad2,
+imgLoad3,
+imgLoad4
 }
 from './eqp-block.js'

@@ -29,6 +29,14 @@ export let hoverTimeout2;
 export let hoverTimeout3;
 export let hoverTimeout4;
 
+export function imgLoad1() {
+  slideBlock1.hover(function() {
+    var img1Load = new Image();
+    img1Load.src = 'Heavy-Weights.5d29ddfe.jpg';
+  });
+  }
+  
+imgLoad1();
 
 export function hover1() {
 slideBlock1.hover(function () {
@@ -58,6 +66,16 @@ slideBlock1.hover(function () {
 
 hover1();
 
+
+export function imgLoad2() {
+slideBlock2.hover(function() {
+  var img2Load = new Image();
+  img2Load.src = 'Tons-Of-Weights.e87ab1e3.jpg';
+});
+}
+
+imgLoad2();
+
 export function hover2() {
 slideBlock2.hover(function(){
   if(media980Px.matches){
@@ -83,6 +101,15 @@ slideBlock2.hover(function(){
 
 hover2();
 
+export function imgLoad3() {
+  slideBlock3.hover(function() {
+    var img3Load = new Image();
+    img3Load.src = 'Workout-Machines.030c08a7.jpg';
+});
+}
+
+imgLoad3();
+
 export function hover3() {
 slideBlock3.hover(function(){
   if(media980Px.matches){
@@ -107,6 +134,15 @@ slideBlock3.hover(function(){
 }
 
 hover3();
+
+export function imgLoad4() {
+  slideBlock4.hover(function() {
+    var img4Load = new Image();
+    img4Load.src = 'Miles-Of-Cardio.61dc1ed0.jpg';
+});
+}
+
+imgLoad4();
    
 export function hover4() {
 slideBlock4.hover(function(){
