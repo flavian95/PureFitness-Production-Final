@@ -1,5 +1,3 @@
-PureFitness-Production-Final
-
 PureFitness-Production-Final is a static responsive website project for a fitness-focused business. It includes multiple pages (Home, About, Contact, FAQ, Memberships, legal pages, etc.) and a clean layout built using HTML, CSS, and JavaScript — suitable as a production-ready landing site for a gym or fitness brand.
 
 📌 Overview
